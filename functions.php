@@ -17,7 +17,6 @@ include_once( 'lib/init.php' );
 //* Load the rest of the files
 include_once( 'lib/functions/autoload.php' );
 
-
 //* Start the engine (i.e. the Genesis Framework)
 include_once( get_template_directory() . '/lib/init.php' );
 

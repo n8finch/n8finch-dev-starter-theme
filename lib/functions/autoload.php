@@ -58,14 +58,14 @@ function load_admin_files() {
 /**
  * Load each of the specified files
  *
- * @param array $filnames
+ * @param array $filenames
  * @param string $folder_root
  */
-function load_specified_files( array $filnames, $folder_root = '' ) {
+function load_specified_files( array $filenames, $folder_root = '' ) {
 	$folder_root = $folder_root ?: CHILD_THEME_DIR . '/lib/';
 
 	foreach ( $filenames as $filename ) {
-		include( $folder_lib_root . $filename );
+		include( $folder_root . $filename );
 	}
 }
 
