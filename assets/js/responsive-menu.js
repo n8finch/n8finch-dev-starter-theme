@@ -6,7 +6,9 @@
 
 	$( 'body' ).addClass( 'js' );
 
+	/* jslint ignore:start */
 	'use strict';
+	/* jslint ignore:end */
 
 	var genesisSample              = {},
 		mainMenuButtonClass = 'menu-toggle',

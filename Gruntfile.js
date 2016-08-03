@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -35,6 +35,19 @@ module.exports = function(grunt) {
       }
     },
 
+    postcss: {
+      options: {
+        map: true, // inline sourcemaps
+
+        processors: [
+          require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes
+        ]
+      },
+      dist: {
+        src: 'style.css'
+      }
+    },
+
     // concat: {
     //   options: {
     //   },
@@ -58,7 +71,7 @@ module.exports = function(grunt) {
 
     watch: {
       files: ['assets/css/*.css', 'assets/js/*.js', 'assets/sass/**/*.scss'],
-      tasks: ['jshint', 'concat', 'sass']
+      tasks: ['jshint', 'sass']
     }
   });
 
@@ -68,7 +81,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-postcss');
 
   grunt.registerTask('default', ['jshint', 'sass', 'watch']);
+  grunt.registerTask('post', 'postcss');
 
 };
